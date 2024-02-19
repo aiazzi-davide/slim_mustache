@@ -34,5 +34,12 @@ class Alunno {
     public function __toString() {
         return $this->nome . " " . $this->cognome . " " . $this->eta;
     }
+    public function toArray() {
+        return [
+            "nome" => $this->nome,
+            "cognome" => $this->cognome,
+            "eta" => $this->eta
+        ];
+    }
 }
 ?>

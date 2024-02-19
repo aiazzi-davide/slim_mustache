@@ -7,8 +7,10 @@
 </head>
 <body>
     {{#getArray}}
-    <span>{{getNome}}</span>
-    gg
+    {{getNome}}
+    {{getCognome}}
+    {{getEta}}
+    <br>
     {{/getArray}}
 </body>
 </html>

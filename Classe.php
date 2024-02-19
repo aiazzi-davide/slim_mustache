@@ -2,16 +2,18 @@
 require "Alunno.php";
 
 class Classe{
-    protected $alunni = [];
+    public $alunni = [];
+
     public function __construct (){
     //creazione array oggetti alunno
     $alunno = new Alunno("Mario", "Rossi", 18);
     $alunno2 = new Alunno("Luigi", "Verdi", 19);
     $alunno3 = new Alunno("Giovanni", "Bianchi", 20);
-    $alunni = array($alunno, $alunno2, $alunno3);
-    
+    array_push($this->alunni, $alunno);
+    array_push($this->alunni, $alunno2);
+    array_push($this->alunni, $alunno3);
     }
-    function getArray(){
+    public function getArray(){
         return $this->alunni;
     }
 }

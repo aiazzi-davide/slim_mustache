@@ -8,8 +8,10 @@ require "./Classe.php";
 
 class Controller{
     function home (Request $request, Response $response, $args){
+        //database
         $classe= new Classe();
-        $view = new Home();                                                                                                     
+        $view = new Home();      
+        //var_dump($classe->getArray());                                                                                           
         $view->setData($classe);
         $response->getBody()->write($view->render());
         return $response;
