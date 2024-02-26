@@ -1,6 +1,6 @@
 <?php
 // Definizione della classe Alunno
-class Alunno {
+class Alunno implements JsonSerializable{
     protected $nome;
     protected $cognome;
     protected $eta;
@@ -40,6 +40,14 @@ class Alunno {
             "cognome" => $this->cognome,
             "eta" => $this->eta
         ];
+    }
+    public function jsonSerialize(){
+        $attrs = [];
+        $class_vars = get_class_vars(get_class($this));
+        foreach($class_vars as $name => $value){
+            $attrs[$name] = $this->{$name};
+        }
+        return $attrs;
     }
 }
 ?>

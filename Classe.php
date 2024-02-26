@@ -1,7 +1,7 @@
 <?php
 require "Alunno.php";
 
-class Classe{
+class Classe implements JsonSerializable{
     public $alunni = [];
 
     public function __construct (){
@@ -22,6 +22,14 @@ class Classe{
                 return $alunno;
             }
         }
+    }
+    public function jsonSerialize(){
+        $attrs = [];
+        $class_vars = get_class_vars(get_class($this));
+        foreach($class_vars as $name => $value){
+            $attrs[$name] = $this->{$name};
+        }
+        return $attrs;
     }
 }
 

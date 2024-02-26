@@ -28,4 +28,18 @@ class Controller
         $response->getBody()->write($view->render());
         return $response;
     }
+    function json_alunni(Request $request, Response $response, $args){
+        $classe = new Classe();
+        
+        if (isset($args['nome'])){
+            $alunno = $classe->getAlunno($args['nome']);
+            $encoded = json_encode($alunno);
+            $response->getBody()->write($encoded);
+            
+        } else {
+            $encoded = json_encode($classe->getArray());
+            $response->getBody()->write($encoded);
+        }
+        return $response->withHeader('Content-Type', 'application/json');
+    }
 }
