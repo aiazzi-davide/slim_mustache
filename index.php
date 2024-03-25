@@ -7,11 +7,11 @@ require __DIR__ . '/Controller/Controller.php';
 
 $app = AppFactory::create();
 
-$app->get('/alunni', 'Controller:home');
-$app->get('/alunni/{nome}', 'Controller:show');
-$app->get('/json/alunni', 'Controller:json_alunni');
-$app->get('/json/alunni/{nome}', 'Controller:json_alunni');
-
+$app->get('/alunni', 'Controller:json_alunni');
+$app->get('/alunni/{nome}', 'Controller:json_alunni');
+$app->post('/alunni', 'Controller:json_post');
+$app->put('/alunni/{id}', 'Controller:json_put');
+$app->delete('/alunni/{id}', 'Controller:json_delete');
 
 
 $app->run();
